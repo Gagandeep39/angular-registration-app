@@ -5,9 +5,10 @@
  * @modify date 2020-10-05 01:57:25
  * @desc Sign Up page
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
 
@@ -16,9 +17,10 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.sass'],
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, OnDestroy {
   signupForm: FormGroup;
   submitted = false;
+  signUpSubscription: Subscription
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -58,9 +60,12 @@ export class SignUpComponent implements OnInit {
    * @param user
    */
   registerUser(user: User) {
-    this.authService.register(user).subscribe(
+    this.signUpSubscription = this.authService.register(user).subscribe(
       () => this.router.navigate(['/signedUp']),
-      () => this.router.navigate(['/signedUp'])
     );
+  }
+
+  ngOnDestroy(): void {
+    this.signUpSubscription.unsubscribe();
   }
 }
