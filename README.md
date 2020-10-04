@@ -1,1 +1,1 @@
-Dheckout deployment at https://gagandeep39.github.io/registration-app/
+Dheckout deployment at https://gagandeep39.github.io/angular-registration-app/
