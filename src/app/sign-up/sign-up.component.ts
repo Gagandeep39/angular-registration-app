@@ -35,7 +35,10 @@ export class SignUpComponent implements OnInit {
         { value: 'john@requantive.com', disabled: true },
         Validators.required
       ),
-      phone: new FormControl('', Validators.required),
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[0-9 ]{10}'),
+      ]),
     });
   }
 
@@ -52,7 +55,7 @@ export class SignUpComponent implements OnInit {
    * Sends a request to server to register the user
    * Signup form is TypeCaseted to User model
    * After sending data to server, user is redirected to success page
-   * @param user 
+   * @param user
    */
   registerUser(user: User) {
     this.authService.register(user).subscribe(

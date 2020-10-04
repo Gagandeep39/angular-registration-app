@@ -27,6 +27,7 @@
         type="number"
         formControlName="phone"
         placeholder="Type a phone number">
+        <div *ngIf="submitted && signupForm.invalid" class="invalid-feedback">*Required length 10</div>
     </div>
     <hr />
     <button class="btn-primary" type="submit">
