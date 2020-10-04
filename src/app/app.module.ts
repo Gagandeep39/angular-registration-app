@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignUpCompletedComponent } from './sign-up-completed/sign-up-completed.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     SignUpComponent,
-    SignUpCompletedComponent
+    SignUpCompletedComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
