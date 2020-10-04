@@ -1,1 +1,36 @@
-<p>sign-up works!</p>
+<div class="body">
+  <h1 class="logo">
+    Q
+  </h1>
+  <p>
+    Please confirm or edit your contact information, so we can notify you when you are approved for our BETA.
+  </p>
+  <hr />
+  <form [formGroup]="signupForm" (ngSubmit)="submitForm()" >
+    <div class="form-group" >
+      <label for="name">NAME</label>
+      <input class="form-control"
+        formControlName="name" >
+    </div>
+    <div class="form-group">
+      <label for="email">EMAIL ADDRESS</label>
+      <input class="form-control"
+        type="text" 
+        formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">PHONE NUMBER</label>
+      <input 
+        class="form-control" 
+        [ngClass]="{'is-invalid': submitted && signupForm.invalid }" 
+        required 
+        type="number"
+        formControlName="phone"
+        placeholder="Type a phone number">
+    </div>
+    <hr />
+    <button class="btn-primary" type="submit">
+      SIGN UP
+    </button>
+  </form>
+</div>
