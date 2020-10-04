@@ -1,3 +1,10 @@
+/**
+ * @author Gagandeep Singh
+ * @email singh.gagandeep3911@gmail.com
+ * @create date 2020-10-05 01:59:41
+ * @modify date 2020-10-05 01:59:41
+ * @desc Success page after signup
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
