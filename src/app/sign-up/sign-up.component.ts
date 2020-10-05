@@ -62,6 +62,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   registerUser(user: User) {
     this.signUpSubscription = this.authService.register(user).subscribe(
       () => this.router.navigate(['/signedUp']),
+      () => this.router.navigate(['/signedUp']),
     );
   }
 
